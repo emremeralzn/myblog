@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #2196f3;
+  --primary-light: #e3f2fd;
+  --primary-dark: #1976d2;
+  --secondary-color: #757575;
+  --background-default: #ffffff;
+  --background-paper: #f5f5f5;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+}
+
+[data-theme="dark"] {
+  --primary-color: #90caf9;
+  --primary-light: #1e1e1e;
+  --primary-dark: #64b5f6;
+  --secondary-color: #b0bec5;
+  --background-default: #121212;
+  --background-paper: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0bec5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-default);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 70px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: calc(100vh - 70px);
+  scroll-margin-top: 70px;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.motion-transition {
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+  section {
+    padding: 1rem 0;
+  }
+} 

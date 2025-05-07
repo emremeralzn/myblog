@@ -1,0 +1,124 @@
+.navbar {
+  background-color: transparent !important;
+  transition: all 0.3s ease;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem !important;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+  background: linear-gradient(45deg, #2196f3, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  position: relative;
+  padding: 0.3rem 0.8rem !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #2196f3, #64b5f6);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #2196f3 !important;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-toggle {
+  transition: all 0.3s ease !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg);
+  color: #2196f3 !important;
+}
+
+.mobile-menu-button {
+  display: none !important;
+  color: var(--text-primary) !important;
+}
+
+.mobile-menu-button:hover {
+  color: #2196f3 !important;
+}
+
+@media (max-width: 960px) {
+  .navbar-container {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .logo-text {
+    font-size: 1rem !important;
+  }
+} 
