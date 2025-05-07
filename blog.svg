@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FFF0" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#00CFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#001F2F" stop-opacity="0.2"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#bg-glow)"/>
+  <style>
+    .logo-text {
+      font: 900 42px 'Courier New', monospace;
+      fill: #00FFF0; /* Parlak mavi-yeşil */
+      filter:
+        drop-shadow(0 0 8px #00FFF0)
+        drop-shadow(0 0 16px #00FFF0)
+        drop-shadow(0 0 24px #00CFFF)
+        drop-shadow(0 0 32px #00CFFF);
+    }
+  </style>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" class="logo-text">
+    &lt;/&gt;
+  </text>
+</svg>
