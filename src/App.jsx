@@ -18,6 +18,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './styles/global.css';
 import './App.css';
+import Work from './pages/Work';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -147,9 +148,13 @@ const App = () => {
         <section id="experience">
           <Experience />
         </section>
+         <section id="work">
+          <Work/>
+        </section>
         <section id="contact">
           <Contact/>
         </section>
+        
       </main>
       <Footer darkMode={darkMode} />
     </div>

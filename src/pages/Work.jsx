@@ -1,11 +1,12 @@
 import { Container, Typography, Box, Paper, Grid, Chip, Divider, useTheme, useMediaQuery } from '@mui/material';
-import SchoolIcon from '@mui/icons-material/School';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import GradeIcon from '@mui/icons-material/Grade';
-import './Experience.css';
+import WorkIcon from '@mui/icons-material/Work';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import BusinessIcon from '@mui/icons-material/Business';
+import './Work.css';
 import { motion } from 'framer-motion';
 
-const Experience = () => {
+const Work = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -27,39 +28,26 @@ const Experience = () => {
     }
   };
 
-  const fadeInRight = {
-    hidden: { opacity: 0, x: 60 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  const education = [
+  const workExperience = [
     {
-      degree: 'Bilgisayar Mühendisliği',
-      school: 'Erzurum Teknik Üniversitesi',
-      period: '2021 - 2025',
-      description: 'Erzurum Teknik Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum.',
-      gpa: '2.92',
-      achievements: [
-        'Bölüm 3.sü',
-        'Yüksek Onur Öğrencisi'
+      position: 'Backend Developer',
+      company: 'Turkuvaz Medya Grubu',
+      period: 'Ağustos 2025 - Ekim 2025',
+      location: 'İstanbul, Türkiye',
+      description: '3 Ay zorunlu staj kapsamında Turkuvaz Medya İşe Alım projesinin backendini 0dan ASP.NET 8 ile yazdım.',
+      skills: [
+        '.NET Core',
+        'Entity Framework',
+        'MSSQL',
+        'API Geliştirme',
+        'Git / GitHub'
       ],
-      courses: [
-        'Veri Yapıları ve Algoritmalar',
-        'Nesne Yönelimli Programlama',
-        'Veritabanı Yönetim Sistemleri',
-        'Web Programlama',
-        'Yapay Zeka'
-      ],
-      image: 'https://i.imgur.com/zaQaKDA.png'
+      image: 'https://i.imgur.com/bYsiBq0.jpeg'
     }
   ];
 
   return (
-    <Container maxWidth="lg" className="experience-container">
+    <Container maxWidth="lg" className="work-container">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -69,7 +57,7 @@ const Experience = () => {
         <Typography 
           variant={isMobile ? "h3" : "h2"}
           component="h1" 
-          className="experience-title"
+          className="work-title"
           sx={{
             lineHeight: 1.2,
             fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -89,13 +77,13 @@ const Experience = () => {
             }
           }}
         >
-          Eğitim
+          Deneyim
         </Typography>
       </motion.div>
 
-      <Box className="experience-section">
+      <Box className="work-section">
         <Grid container spacing={3}>
-          {education.map((edu, index) => (
+          {workExperience.map((work, index) => (
             <Grid item xs={12} key={index}>
               <motion.div
                 initial="hidden"
@@ -105,7 +93,7 @@ const Experience = () => {
               >
                 <Paper 
                   elevation={3} 
-                  className="education-card"
+                  className="work-card"
                   sx={{
                     transition: 'all 0.3s ease',
                     '&:hover': {
@@ -132,14 +120,14 @@ const Experience = () => {
                       backgroundColor: 'rgba(33, 150, 243, 0.1)',
                       margin: isMobile ? '0 auto' : '0'
                     }}>
-                      {edu.image ? (
+                      {work.image ? (
                         <img 
-                          src={edu.image} 
-                          alt={edu.school} 
+                          src={work.image} 
+                          alt={work.company} 
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
                       ) : (
-                        <SchoolIcon sx={{ fontSize: isMobile ? 40 : 50, color: '#2196f3' }} />
+                        <WorkIcon sx={{ fontSize: isMobile ? 40 : 50, color: '#2196f3' }} />
                       )}
                     </Box>
                     
@@ -147,77 +135,47 @@ const Experience = () => {
                       <Typography 
                         variant={isMobile ? "h6" : "h5"}
                         className="card-title"
-                        sx={{
-                          lineHeight: 1.2,
-                          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                          color: '#2196f3',
-                          fontWeight: 600
-                        }}
                       >
-                        {edu.degree}
+                        {work.position}
                       </Typography>
                       <Typography 
                         variant={isMobile ? "subtitle1" : "h6"}
                         className="card-company"
-                        sx={{
-                          lineHeight: 1.2,
-                          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                          color: 'text.primary',
-                          mt: 1
-                        }}
+                        sx={{ mt: 1 }}
                       >
-                        {edu.school}
+                        <BusinessIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle', color: '#2196f3' }} />
+                        {work.company}
                       </Typography>
                       <Typography 
                         variant="subtitle2" 
                         className="card-period"
-                        sx={{
-                          lineHeight: 1.2,
-                          fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                          color: 'text.secondary',
-                          mt: 1
-                        }}
                       >
-                        {edu.period}
+                        <CalendarMonthIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle', color: '#2196f3' }} />
+                        {work.period}
+                      </Typography>
+                      <Typography 
+                        variant="subtitle2"
+                        sx={{ color: 'text.secondary', mt: 0.5 }}
+                      >
+                        <LocationOnIcon sx={{ fontSize: 18, mr: 1, verticalAlign: 'middle', color: '#2196f3' }} />
+                        {work.location}
                       </Typography>
                     </Box>
                   </Box>
 
                   <Divider sx={{ my: 3 }} />
-                  
-                  <Box sx={{ 
-                    display: 'flex', 
-                    gap: 3, 
-                    mb: 3,
-                    justifyContent: isMobile ? 'center' : 'flex-start'
-                  }}>
-                    <Box sx={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      gap: 1,
-                      backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                      padding: '8px 16px',
-                      borderRadius: '20px'
-                    }}>
-                      <GradeIcon sx={{ color: '#2196f3' }} />
-                      <Typography sx={{ color: '#2196f3', fontWeight: 500 }}>
-                        GPA: {edu.gpa}
-                      </Typography>
-                    </Box>
-                  </Box>
 
                   <Typography 
                     variant="body1" 
                     className="card-description"
                     sx={{
                       lineHeight: 1.6,
-                      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
                       mb: 3,
                       textAlign: isMobile ? 'center' : 'left',
                       fontSize: isMobile ? '0.9rem' : '1rem'
                     }}
                   >
-                    {edu.description}
+                    {work.description}
                   </Typography>
 
                   <Box>
@@ -229,7 +187,7 @@ const Experience = () => {
                         textAlign: isMobile ? 'center' : 'left'
                       }}
                     >
-                      Öne Çıkan Dersler
+                      Kullanılan Teknolojiler
                     </Typography>
                     <Box sx={{ 
                       display: 'flex', 
@@ -237,10 +195,10 @@ const Experience = () => {
                       gap: 1,
                       justifyContent: isMobile ? 'center' : 'flex-start'
                     }}>
-                      {edu.courses.map((course, idx) => (
+                      {work.skills.map((skill, idx) => (
                         <Chip
                           key={idx}
-                          label={course}
+                          label={skill}
                           variant="outlined"
                           sx={{
                             borderColor: 'rgba(33, 150, 243, 0.3)',
@@ -263,4 +221,4 @@ const Experience = () => {
   );
 };
 
-export default Experience; 
+export default Work;

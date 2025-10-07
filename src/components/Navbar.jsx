@@ -12,7 +12,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'about', 'projects', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'experience','work', 'contact'];
       let currentSection = sections[0];
 
       sections.forEach(section => {
@@ -59,6 +59,7 @@ const Navbar = () => {
     { label: 'Projeler', section: 'projects' },
     { label: 'Eğitim', section: 'experience' },
     { label: 'İletişim', section: 'contact' },
+    { label: 'Deneyim', section: 'work' },
     { label: 'Blog', section: 'blog' }
   ];
 
