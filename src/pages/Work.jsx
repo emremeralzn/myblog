@@ -34,17 +34,26 @@ const Work = () => {
       company: 'Turkuvaz Medya Grubu',
       period: 'Ağustos 2025 - Ekim 2025',
       location: 'İstanbul, Türkiye',
-      description: '3 Ay zorunlu staj kapsamında Turkuvaz Medya İşe Alım projesinin backendini 0dan ASP.NET 8 ile yazdım.',
+      description: `3 aylık zorunlu staj sürecinde, Turkuvaz Medya'nın işe alım süreçlerini dijitalleştirmeyi hedefleyen 
+      **İşe Alım Projesi**'nin backend mimarisini sıfırdan tasarladım ve geliştirdim. 
+      Proje boyunca **ASP.NET Core 8**, **Entity Framework Core** ve **MSSQL** teknolojilerini kullanarak RESTful API yapısını oluşturdum. 
+      Kullanıcı yönetimi, JWT tabanlı kimlik doğrulama, rol bazlı erişim kontrolü ve loglama mekanizmaları gibi 
+      temel modüllerin geliştirilmesini üstlendim.  
+      Kod kalitesini artırmak için **katmanlı mimari** ve **SOLID prensipleri**ne uygun yapı kurdum.  
+      Ayrıca ekip içi versiyon kontrolü ve iş birliği süreçlerinde **Git/GitHub** kullanarak aktif rol aldım.`,
       skills: [
-        '.NET Core',
-        'Entity Framework',
+        '.NET 8',
+        'Entity Framework Core',
         'MSSQL',
-        'API Geliştirme',
+        'JWT Authentication',
+        'RESTful API Geliştirme',
+        'Katmanlı Mimari',
         'Git / GitHub'
       ],
       image: 'https://i.imgur.com/bYsiBq0.jpeg'
     }
   ];
+  
 
   return (
     <Container maxWidth="lg" className="work-container">
