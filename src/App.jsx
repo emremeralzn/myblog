@@ -13,12 +13,10 @@ import Auction from './pages/Auction';
 import Cybersecurity from './pages/Cybersecurity';
 import ArtificialIntelligence from './pages/ArtificialIntelligence';
 import Gambling from './pages/Gambling';
-import { Typography, Button, Container, TextField, Box, Grid } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './styles/global.css';
 import './App.css';
 import Work from './pages/Work';
+import RecruitmentPortal from './pages/RecruitmentPortal';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -168,6 +166,7 @@ const App = () => {
         <Route path="/cybersecurity" element={<Cybersecurity />} />
         <Route path="/artificial-intelligence" element={<ArtificialIntelligence />} />
         <Route path="/gambling" element={<Gambling />} />
+        <Route path="/isealim-portal" element={<RecruitmentPortal />} />
         <Route path="*" element={<MainContent />} />
       </Routes>
     </ThemeProvider>

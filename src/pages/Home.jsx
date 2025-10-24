@@ -114,7 +114,7 @@ const Home = () => {
                   <Button
                     variant="outlined"
                     className="cv-button"
-                    href="https://drive.google.com/file/d/1BEe5xVnDhuUCL_SxwJc3rw0RMv1_2gWt/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1rapInHVp1tqRaQrhZjKH8OTLGh2nswCI/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

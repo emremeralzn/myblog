@@ -37,6 +37,48 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 'isealim-portal',
+      title: 'İşe Alım Portalı Backend',
+      description: 'Turkuvaz Medya’nın işe alım portalının backend altyapısını ASP.NET Core ile sıfırdan geliştirdim. Katmanlı mimari, JWT tabanlı kimlik doğrulama ve FluentValidation ile güvenli ve sürdürülebilir bir yapı kurdum. Veritabanı yönetimini Database-First yaklaşımıyla Entity Framework Core üzerinden gerçekleştirdim. Proje kapsamında, EBA sistemine otomatik veri aktarımını sağlayan REST tabanlı bir entegrasyon API’si geliştirdim.',
+      image: 'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761291617/Screenshot_131_xrskvb.png',
+      tags: [
+        'C#',
+        'ASP.NET Core',
+        'Entity Framework Core',
+        'SQL Server',
+        'LINQ',
+        'Db-First',
+        'EBA API Integration',
+        'Repository Pattern',
+        'Dependency Injection',
+        'AutoMapper',
+        'Fluent-Validation',
+        'JWT',
+        'Clean Architecture',
+        'REST API',
+        'Identity',
+        'Postman',
+        'Swagger',
+        'Unit Test',
+        'Cypress',
+        'TypeScript',
+        'Angular',
+        'JSON',
+        'Git',
+        'Trello'
+      ],
+      detailPath: '/isealim-portal'
+    },
+    {
+      id: 'transportation-management-system',
+      title: 'Nakliyat Web Sitesi',
+      description: 'Bu proje, modern web geliştirme teknolojileri kullanılarak inşa edilmiş bir nakliyat web sitesidir. Next.js ve Tailwind CSS ile tasarlanmış olan bu site, kullanıcı dostu bir deneyim sunmak amacıyla TypeScript ile güçlendirilmiştir. Aynı zamanda site, Git ile versiyon kontrolü yapılırken, Cloudinary ve Netlify gibi servisler ile medya yönetimi ve dağıtım kolaylaştırılmıştır. SEO dostu yapısı sayesinde arama motorlarında daha görünür bir hale gelir. JSON verileriyle entegre çalışarak verimli ve hızlı veri yönetimi sağlar.',
+      image: 'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761289933/transportation-website_flduow.png',
+      tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Git', 'Cloudinary', 'Netlify','SEO','JSON'],
+      link: 'https://github.com/emremeralzn/guven-transportation',
+       website: 'https://guven-nakliyat.netlify.app/'
+    },
+    {
       id: 'acik-arttirma',
       title: 'Açık Arttırma Web Sitesi',
       description: 'Bu proje, ASP.NET Core ve React kullanılarak geliştirilmiş tam kapsamlı bir e-ticaret uygulamasıdır. Clean Architecture ve CQRS desenleri kullanılmıştır. SignalR ile gerçek zamanlı bildirim, JWT ile kimlik doğrulama sağlanmıştır. Veritabanı olarak MSSQL tercih edilmiştir.',
@@ -45,6 +87,7 @@ const Projects = () => {
       link: 'https://github.com/emremeralzn/front-end',
       detailPath: '/auction'
     },
+   
     {
       id: 'siber-guvenlik',
       title: 'Siber Güvenlik Simülasyonu',
@@ -221,6 +264,7 @@ const Projects = () => {
                         Siteye Git
                       </Button>
                     )}
+                    {project.link && (
                     <Button
                       size="small"
                       color="primary"
@@ -237,6 +281,7 @@ const Projects = () => {
                     >
                       GitHub
                     </Button>
+                    )}
                   </CardActions>
                 </CardContent>
               </Card>
