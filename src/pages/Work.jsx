@@ -42,13 +42,30 @@ const Work = () => {
       Kod kalitesini artırmak için **katmanlı mimari** ve **SOLID prensipleri**ne uygun yapı kurdum.  
       Ayrıca ekip içi versiyon kontrolü ve iş birliği süreçlerinde **Git/GitHub** kullanarak aktif rol aldım.`,
       skills: [
-        '.NET 8',
+        'C#',
+        'ASP.NET Core',
         'Entity Framework Core',
-        'MSSQL',
-        'JWT Authentication',
-        'RESTful API Geliştirme',
-        'Katmanlı Mimari',
-        'Git / GitHub'
+        'SQL Server',
+        'LINQ',
+        'Db-First',
+        'EBA API Integration',
+        'Repository Pattern',
+        'Dependency Injection',
+        'AutoMapper',
+        'Fluent-Validation',
+        'JWT',
+        'Clean Architecture',
+        'REST API',
+        'Identity',
+        'Postman',
+        'Swagger',
+        'Unit Test',
+        'Cypress',
+        'TypeScript',
+        'Angular',
+        'JSON',
+        'Git',
+        'Trello'
       ],
       image: 'https://i.imgur.com/bYsiBq0.jpeg'
     }
