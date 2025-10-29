@@ -221,7 +221,7 @@ export const translations = {
       description: 'I develop modern, user-friendly and scalable web applications using React and .NET technologies. I am experienced in both frontend and backend development processes.',
       contactButton: 'Get In Touch',
       cvButton: 'Download CV',
-      cvLink: 'https://drive.google.com/file/d/12mCJ4qegVj7I7ZfxlzUEsZokpM0tqeV1/view?usp=sharing'
+      cvLink: 'https://drive.google.com/file/d/1MLla8iM3biBjNU5OZf1TRTqPTkwDOSqv/view?usp=sharing'
     },
     // About Page
     about: {

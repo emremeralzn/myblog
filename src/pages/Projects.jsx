@@ -186,6 +186,11 @@ const Projects = () => {
                   alt={`${project.title} - ${language === 'tr' ? 'Proje Görseli' : 'Project Image'}`}
                   loading="lazy"
                   className="project-image"
+                  sx={{
+                    height: '300px',
+                    objectFit: 'contain',
+                    backgroundColor: 'rgba(255, 255, 255, 0.02)'
+                  }}
                 />
                 <CardContent className="project-content" sx={{ flexGrow: 1 }}>
                   <Typography 
