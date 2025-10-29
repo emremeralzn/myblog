@@ -1,10 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/myblog/blog.svg" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Emre Meral - Full Stack Developer | React & .NET</title>
+    <meta name="title" content="Emre Meral - Full Stack Developer | React & .NET" />
+    <meta name="description" content="Full Stack Developer specializing in React and .NET. Building modern, scalable web applications with clean code and best practices." />
+    <meta name="keywords" content="Full Stack Developer, React Developer, .NET Developer, Web Developer, Emre Meral, Portfolio" />
+    <meta name="author" content="Emre Meral" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emre Meral</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emremeralzn.github.io/myblog/" />
+    <meta property="og:title" content="Emre Meral - Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer specializing in React and .NET" />
+    <meta property="og:image" content="https://emremeralzn.github.io/myblog/blog.svg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://emremeralzn.github.io/myblog/" />
+    <meta property="twitter:title" content="Emre Meral - Full Stack Developer" />
+    <meta property="twitter:description" content="Full Stack Developer specializing in React and .NET" />
+    <meta property="twitter:image" content="https://emremeralzn.github.io/myblog/blog.svg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/myblog/blog.svg" />
+    <link rel="apple-touch-icon" href="/myblog/blog.svg" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#121212" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- GitHub Pages 404 Redirect Handler -->
+    <script type="text/javascript">
+      // This script handles the redirect from 404.html
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMP1Q9Z8N0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,11 +60,14 @@
       gtag('js', new Date());
       gtag('config', 'G-MMP1Q9Z8N0');
     </script>
-    <!-- End Google Analytics -->
-    <script type="module" crossorigin src="/myblog/assets/index-H0nDgpO-.js"></script>
-    <link rel="stylesheet" crossorigin href="/myblog/assets/index-CSmyiqEv.css">
+    <script type="module" crossorigin src="/myblog/assets/index-CuuvRvr-.js"></script>
+    <link rel="modulepreload" crossorigin href="/myblog/assets/react-vendor-DN5SO1mm.js">
+    <link rel="modulepreload" crossorigin href="/myblog/assets/mui-vendor-CjBxyjg-.js">
+    <link rel="modulepreload" crossorigin href="/myblog/assets/animation-vendor-D6G73MSN.js">
+    <link rel="stylesheet" crossorigin href="/myblog/assets/index-BmNOijy6.css">
   </head>
   <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
 </html>
