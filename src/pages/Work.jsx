@@ -5,10 +5,14 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessIcon from '@mui/icons-material/Business';
 import './Work.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Work = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].work;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -28,19 +32,15 @@ const Work = () => {
     }
   };
 
+  const workData = t.workExperience[0];
+  
   const workExperience = [
     {
-      position: 'Backend Developer',
-      company: 'Turkuvaz Medya Grubu',
-      period: 'Ağustos 2025 - Ekim 2025',
-      location: 'İstanbul, Türkiye',
-      description: `3 aylık zorunlu staj sürecinde, Turkuvaz Medya'nın işe alım süreçlerini dijitalleştirmeyi hedefleyen 
-      **İşe Alım Projesi**'nin backend mimarisini sıfırdan tasarladım ve geliştirdim. 
-      Proje boyunca **ASP.NET Core 8**, **Entity Framework Core** ve **MSSQL** teknolojilerini kullanarak RESTful API yapısını oluşturdum. 
-      Kullanıcı yönetimi, JWT tabanlı kimlik doğrulama, rol bazlı erişim kontrolü ve loglama mekanizmaları gibi 
-      temel modüllerin geliştirilmesini üstlendim.  
-      Kod kalitesini artırmak için **katmanlı mimari** ve **SOLID prensipleri**ne uygun yapı kurdum.  
-      Ayrıca ekip içi versiyon kontrolü ve iş birliği süreçlerinde **Git/GitHub** kullanarak aktif rol aldım.`,
+      position: workData.position,
+      company: workData.company,
+      period: workData.period,
+      location: workData.location,
+      description: workData.description,
       skills: [
         'C#',
         'ASP.NET Core',
@@ -103,7 +103,7 @@ const Work = () => {
             }
           }}
         >
-          Deneyim
+          {t.title}
         </Typography>
       </motion.div>
 
@@ -149,7 +149,8 @@ const Work = () => {
                       {work.image ? (
                         <img 
                           src={work.image} 
-                          alt={work.company} 
+                          alt={`${work.company} - ${language === 'tr' ? 'Şirket Logosu' : 'Company Logo'}`}
+                          loading="lazy"
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
                       ) : (
@@ -213,7 +214,7 @@ const Work = () => {
                         textAlign: isMobile ? 'center' : 'left'
                       }}
                     >
-                      Kullanılan Teknolojiler
+                      {t.technologiesUsed}
                     </Typography>
                     <Box sx={{ 
                       display: 'flex', 

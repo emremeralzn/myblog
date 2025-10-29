@@ -2,33 +2,28 @@ import { Container, Typography, Box, Grid, Paper, Button } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './ProjectStyles.css';
 
 const ArtificialIntelligence = () => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const t = translations[language].projectDetails;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const projectData = translations[language].artificialIntelligence;
+  
   const project = {
-    title: 'Yapay Zeka Destekli Görüntü Sınıflandırıcı',
-    description: 'Bu projede, kullanıcıların yüklediği görselleri analiz ederek belirli bir kategoriye (örneğin meyve, hayvan, nesne) sınıflandıran bir görüntü sınıflandırma modeli geliştirilmiştir. Görsel veriler, ön işleme adımlarından (yeniden boyutlandırma, normalize etme vb.) geçirildikten sonra, eğitimli bir yapay zeka modeli tarafından analiz edilir ve sınıf tahmini yapılır.',
+    title: projectData.title,
+    description: projectData.description,
     images: [
       'https://i.imgur.com/ndB65k4.png'
     ],
-    features: [
-      'Derin öğrenme tabanlı görüntü sınıflandırma modeli',
-      'Kullanıcı dostu web arayüzü',
-      'Gerçek zamanlı görüntü analizi',
-      'Çoklu sınıf tahmin desteği',
-      'Yüksek doğruluk oranı',
-      'Detaylı sınıflandırma sonuçları',
-      'Görsel ön işleme ve normalizasyon',
-      'Model performans metrikleri',
-      'Kolay entegrasyon API',
-      'Detaylı dokümantasyon'
-    ],
+    features: projectData.features,
     technologies: ['Python', 'PyTorch', 'Gradio', 'NumPy', 'Pillow', 'scikit-learn', 'Flask', 'OpenCV']
   };
 
@@ -45,7 +40,7 @@ const ArtificialIntelligence = () => {
           }
         }}
       >
-         Geri Dön
+         {t.backButton}
       </Button>
 
       <Typography 
@@ -84,7 +79,7 @@ const ArtificialIntelligence = () => {
           >
             <img
               src={project.images[0]}
-              alt="Proje görseli"
+              alt={t.imageAlt}
               style={{
                 width: '100%',
                 height: 'auto',
@@ -100,7 +95,7 @@ const ArtificialIntelligence = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Öne Çıkan Özellikler
+              {t.featuresTitle}
             </Typography>
             <ul style={{ margin: 0, paddingLeft: '20px' }}>
               {project.features.map((feature, index) => (
@@ -117,7 +112,7 @@ const ArtificialIntelligence = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Kullanılan Teknolojiler
+              {t.technologiesTitle}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               {project.technologies.map((tech, index) => (

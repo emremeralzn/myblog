@@ -11,10 +11,14 @@ import {
 } from '@mui/material';
 import './Home.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].home;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -79,8 +83,8 @@ const Home = () => {
                     mt: isMobile ? 2 : 0
                   }}
                 >
-                  Merhaba, Ben Emre{' '}
-                  <span className="highlight">Full Stack Developer'ım</span>
+                  {t.greeting}{' '}
+                  <span className="highlight">{t.title}</span>
                 </Typography>
                 {isMobile && <Box sx={{ height: 32 }} />}
                 <Typography
@@ -93,9 +97,7 @@ const Home = () => {
                     mt: 2
                   }}
                 >
-                  React ve .NET teknolojilerini kullanarak modern, kullanıcı
-                  dostu ve ölçeklenebilir web uygulamaları geliştiriyorum. Hem
-                  frontend hem de backend geliştirme süreçlerinde deneyimliyim.
+                  {t.description}
                 </Typography>
                 <Box
                   className="button-group"
@@ -109,16 +111,16 @@ const Home = () => {
                     className="contact-button"
                     href="#contact"
                   >
-                    İletişime Geç
+                    {t.contactButton}
                   </Button>
                   <Button
                     variant="outlined"
                     className="cv-button"
-                    href="https://drive.google.com/file/d/1rapInHVp1tqRaQrhZjKH8OTLGh2nswCI/view?usp=sharing"
+                    href={t.cvLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    CV'mi İndir
+                    {t.cvButton}
                   </Button>
                 </Box>
               </Box>

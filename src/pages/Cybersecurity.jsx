@@ -3,19 +3,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './ProjectStyles.css';
 
 const Cybersecurity = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const t = translations[language].projectDetails;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const projectData = translations[language].cybersecurity;
+  
   const project = {
-    title: 'Siber Güvenlik Simülasyonu',
-    description: 'Bu proje, siber güvenlik alanında eğitim ve simülasyon amaçlı geliştirilmiş bir web uygulamasıdır. Kullanıcılar, gerçek dünya senaryolarına dayalı siber saldırı ve savunma simülasyonlarını deneyimleyebilir. Proje, modern web teknolojileri kullanılarak geliştirilmiş ve kapsamlı bir öğrenme deneyimi sunmaktadır.',
+    title: projectData.title,
+    description: projectData.description,
     images: [
       'https://i.imgur.com/5I3R3zP.png',
       'https://i.imgur.com/OfcttaL.png',
@@ -26,18 +32,7 @@ const Cybersecurity = () => {
       'https://i.imgur.com/LrU8KO8.png',
       'https://i.imgur.com/iawlXGe.png'
     ],
-    features: [
-      'Gerçek dünya siber güvenlik senaryolarına dayalı simülasyonlar',
-      'İnteraktif öğrenme modülleri ve alıştırmalar',
-      'Detaylı güvenlik açığı analizi ve raporlama',
-      'Kullanıcı dostu arayüz ve adım adım rehberlik',
-      'Gerçek zamanlı saldırı ve savunma simülasyonları',
-      'Kapsamlı güvenlik kontrol listeleri',
-      'İlerleme takibi ve başarı istatistikleri',
-      'Güvenlik en iyi uygulamaları eğitimi',
-      'Çeşitli zorluk seviyelerinde senaryolar',
-      'Detaylı dokümantasyon ve kaynaklar'
-    ],
+    features: projectData.features,
     technologies: ['React', 'Node.js', 'SQLite', 'JWT', 'Identity', 'Material-UI', 'Redux', 'Bootstrap','Git']
   };
 
@@ -66,7 +61,7 @@ const Cybersecurity = () => {
           }
         }}
       >
-         Geri Dön
+         {t.backButton}
       </Button>
 
       <Typography 
@@ -105,7 +100,8 @@ const Cybersecurity = () => {
           >
             <img
               src={project.images[currentImageIndex]}
-              alt={`Proje görseli ${currentImageIndex + 1}`}
+              alt={`${project.title} - ${t.imageAlt} ${currentImageIndex + 1}`}
+              loading="lazy"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -188,7 +184,7 @@ const Cybersecurity = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Öne Çıkan Özellikler
+              {t.featuresTitle}
             </Typography>
             <ul style={{ margin: 0, paddingLeft: '20px' }}>
               {project.features.map((feature, index) => (
@@ -205,7 +201,7 @@ const Cybersecurity = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Kullanılan Teknolojiler
+              {t.technologiesTitle}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               {project.technologies.map((tech, index) => (

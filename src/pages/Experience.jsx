@@ -4,10 +4,14 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GradeIcon from '@mui/icons-material/Grade';
 import './Experience.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Experience = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].experience;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -36,24 +40,17 @@ const Experience = () => {
     }
   };
 
+  const educationData = t.education[0];
+  
   const education = [
     {
-      degree: 'Bilgisayar Mühendisliği',
-      school: 'Erzurum Teknik Üniversitesi',
-      period: '2021 - 2025',
-      description: 'Erzurum Teknik Üniversitesi Bilgisayar Mühendisliği bölümünden mezunum.',
-      gpa: '2.92',
-      achievements: [
-        'Bölüm 3.sü',
-        'Yüksek Onur Öğrencisi'
-      ],
-      courses: [
-        'Veri Yapıları ve Algoritmalar',
-        'Nesne Yönelimli Programlama',
-        'Veritabanı Yönetim Sistemleri',
-        'Web Programlama',
-        'Yapay Zeka'
-      ],
+      degree: educationData.degree,
+      school: educationData.school,
+      period: educationData.period,
+      description: educationData.description,
+      gpa: educationData.gpa,
+      achievements: educationData.achievements,
+      courses: educationData.courses,
       image: 'https://i.imgur.com/zaQaKDA.png'
     }
   ];
@@ -89,7 +86,7 @@ const Experience = () => {
             }
           }}
         >
-          Eğitim
+          {t.title}
         </Typography>
       </motion.div>
 
@@ -135,7 +132,8 @@ const Experience = () => {
                       {edu.image ? (
                         <img 
                           src={edu.image} 
-                          alt={edu.school} 
+                          alt={`${edu.school} - ${language === 'tr' ? 'Üniversite Logosu' : 'University Logo'}`}
+                          loading="lazy"
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
                       ) : (
@@ -201,7 +199,7 @@ const Experience = () => {
                     }}>
                       <GradeIcon sx={{ color: '#2196f3' }} />
                       <Typography sx={{ color: '#2196f3', fontWeight: 500 }}>
-                        GPA: {edu.gpa}
+                        {t.gpa}: {edu.gpa}
                       </Typography>
                     </Box>
                   </Box>
@@ -229,7 +227,7 @@ const Experience = () => {
                         textAlign: isMobile ? 'center' : 'left'
                       }}
                     >
-                      Öne Çıkan Dersler
+                      {t.featuredCourses}
                     </Typography>
                     <Box sx={{ 
                       display: 'flex', 

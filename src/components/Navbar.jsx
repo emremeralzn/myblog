@@ -1,12 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button, Box, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language].navbar;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,12 +59,12 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: 'Hakkımda', section: 'about' },
-    { label: 'Projeler', section: 'projects' },
-    { label: 'Eğitim', section: 'experience' },
-    { label: 'İletişim', section: 'contact' },
-    { label: 'Deneyim', section: 'work' },
-    { label: 'Blog', section: 'blog' }
+    { label: t.about, section: 'about' },
+    { label: t.projects, section: 'projects' },
+    { label: t.education, section: 'experience' },
+    { label: t.contact, section: 'contact' },
+    { label: t.experience, section: 'work' },
+    { label: t.blog, section: 'blog' }
   ];
 
   return (
@@ -73,7 +77,7 @@ const Navbar = () => {
         </div>
 
         {/* Masaüstü menü */}
-        <Box className={`nav-links`} sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Box className={`nav-links`} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
           {navItems.map((item) => (
             <Button
               key={item.section}
@@ -93,6 +97,36 @@ const Navbar = () => {
 
         {/* Mobil menü butonları */}
         <div className="navbar-actions">
+          {/* Dil değiştirme butonu - Mobil */}
+          <IconButton
+            onClick={toggleLanguage}
+            size="small"
+            sx={{ 
+              padding: '4px',
+              mr: 1,
+              '&:hover': {
+                backgroundColor: 'rgba(33, 150, 243, 0.1)'
+              }
+            }}
+            title={language === 'tr' ? 'Switch to English' : 'Türkçeye Geç'}
+          >
+            {language === 'tr' ? (
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" 
+                alt="Switch to English"
+                loading="lazy"
+                style={{ width: '24px', height: '16px', borderRadius: '2px' }}
+              />
+            ) : (
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg" 
+                alt="Türkçeye Geç"
+                loading="lazy"
+                style={{ width: '24px', height: '16px', borderRadius: '2px' }}
+              />
+            )}
+          </IconButton>
+          
           <IconButton
             className="mobile-menu-button"
             onClick={() => setIsMobileMenuOpen(true)}
@@ -148,6 +182,8 @@ const Navbar = () => {
       </Toolbar>
     </AppBar>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar; 

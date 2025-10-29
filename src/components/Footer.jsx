@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Box, Typography, IconButton, Paper } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
-const Footer = () => {
+const Footer = memo(() => {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
   return (
     <Paper
       component="footer"
@@ -37,7 +41,7 @@ const Footer = () => {
             fontWeight: 400
           }}
         >
-          © 2025 <Box component="span" sx={{ color: '#2196f3', fontWeight: 700 }}>Emre MERAL</Box> | Tüm hakları saklıdır.
+          © 2025 <Box component="span" sx={{ color: '#2196f3', fontWeight: 700 }}>Emre MERAL</Box> | {t.copyright}
         </Typography>
 
         <Box
@@ -91,6 +95,8 @@ const Footer = () => {
       </Box>
     </Paper>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

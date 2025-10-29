@@ -2,11 +2,15 @@ import { Container, Typography, Grid, Card, CardContent, CardMedia, CardActions,
 import { useNavigate } from 'react-router-dom';
 import './Projects.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Projects = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].projects;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -35,11 +39,13 @@ const Projects = () => {
     }
   };
 
+  const projectsData = t.projectsList;
+  
   const projects = [
     {
       id: 'isealim-portal',
-      title: 'İşe Alım Portalı Backend',
-      description: 'Turkuvaz Medya’nın işe alım portalının backend altyapısını ASP.NET Core ile sıfırdan geliştirdim. Katmanlı mimari, JWT tabanlı kimlik doğrulama ve FluentValidation ile güvenli ve sürdürülebilir bir yapı kurdum. Veritabanı yönetimini Database-First yaklaşımıyla Entity Framework Core üzerinden gerçekleştirdim. Proje kapsamında, EBA sistemine otomatik veri aktarımını sağlayan REST tabanlı bir entegrasyon API’si geliştirdim.',
+      title: projectsData[0].title,
+      description: projectsData[0].description,
       image: 'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761291617/Screenshot_131_xrskvb.png',
       tags: [
         'C#',
@@ -71,8 +77,8 @@ const Projects = () => {
     },
     {
       id: 'transportation-management-system',
-      title: 'Nakliyat Web Sitesi',
-      description: 'Bu proje, modern web geliştirme teknolojileri kullanılarak inşa edilmiş bir nakliyat web sitesidir. Next.js ve Tailwind CSS ile tasarlanmış olan bu site, kullanıcı dostu bir deneyim sunmak amacıyla TypeScript ile güçlendirilmiştir. Aynı zamanda site, Git ile versiyon kontrolü yapılırken, Cloudinary ve Netlify gibi servisler ile medya yönetimi ve dağıtım kolaylaştırılmıştır. SEO dostu yapısı sayesinde arama motorlarında daha görünür bir hale gelir. JSON verileriyle entegre çalışarak verimli ve hızlı veri yönetimi sağlar.',
+      title: projectsData[1].title,
+      description: projectsData[1].description,
       image: 'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761289933/transportation-website_flduow.png',
       tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Git', 'Cloudinary', 'Netlify','SEO','JSON'],
       link: 'https://github.com/emremeralzn/guven-transportation',
@@ -80,8 +86,8 @@ const Projects = () => {
     },
     {
       id: 'acik-arttirma',
-      title: 'Açık Arttırma Web Sitesi',
-      description: 'Bu proje, ASP.NET Core ve React kullanılarak geliştirilmiş tam kapsamlı bir e-ticaret uygulamasıdır. Clean Architecture ve CQRS desenleri kullanılmıştır. SignalR ile gerçek zamanlı bildirim, JWT ile kimlik doğrulama sağlanmıştır. Veritabanı olarak MSSQL tercih edilmiştir.',
+      title: projectsData[2].title,
+      description: projectsData[2].description,
       image: 'https://i.imgur.com/AfY8yoD.png',
       tags: ['ASP.NET Core', 'React', 'JavaScript', 'SQL Server', 'SignalR', 'Redux Toolkit', 'JWT'],
       link: 'https://github.com/emremeralzn/front-end',
@@ -90,8 +96,8 @@ const Projects = () => {
    
     {
       id: 'siber-guvenlik',
-      title: 'Siber Güvenlik Simülasyonu',
-      description: 'Bu proje, ASP.NET Core (backend) ve React (frontend) teknolojileri kullanılarak geliştirilmiş bir siber güvenlik simülasyonudur. Backend tarafında katmanlı ve sürdürülebilir bir yapı için Onion Architecture tercih edilmiştir. Uygulama, kullanıcıların belirli güvenlik senaryoları üzerinden etkileşimli bir şekilde test yapmasını ve sonuçları analiz etmesini sağlamaktadır.',
+      title: projectsData[3].title,
+      description: projectsData[3].description,
       image: 'https://i.imgur.com/5I3R3zP.png',
       tags: ['ASP.NET Core', 'React', 'JWT', 'SQLite', 'Onion Architecture'],
       link: 'https://github.com/emremeralzn/siberguvenlikprojesi',
@@ -99,8 +105,8 @@ const Projects = () => {
     },
     {
       id: 'yapay-zeka',
-      title: 'Yapay Zeka Destekli Görüntü Sınıflandırıcı',
-      description: 'Bu projede, kullanıcıların yüklediği görselleri analiz ederek belirli bir kategoriye (örneğin meyve, hayvan, nesne) sınıflandıran bir görüntü sınıflandırma modeli geliştirilmiştir. Görsel veriler, ön işleme adımlarından (yeniden boyutlandırma, normalize etme vb.) geçirildikten sonra, eğitimli bir yapay zeka modeli tarafından analiz edilir ve sınıf tahmini yapılır.',
+      title: projectsData[4].title,
+      description: projectsData[4].description,
       image: 'https://i.imgur.com/ndB65k4.png',
       tags: ['Artificial intelligence', 'PyTorch', 'Gradio', 'Python'],
       link: 'https://github.com/emremeralzn/artificial-intelligence',
@@ -108,8 +114,8 @@ const Projects = () => {
     },
     {
       id: 'kumar-bagimliligi',
-      title: 'Kumar Bağımlılığı Web Sitesi',
-      description: 'Bu proje, kumar bağımlılığı hakkında farkındalık oluşturmak ve bilgilendirme sağlamak amacıyla hazırlanmıştır. Uygulama React ile geliştirilmiş olup, modern ve sade bir yapıda sunulmuştur. Kullanıcıların bağımlılıkla ilgili içeriklere kolayca erişebilmesi hedeflenmiştir. Proje, Netlify altyapısı kullanılarak hızlı ve kolay bir şekilde yayınlanmıştır.',
+      title: projectsData[5].title,
+      description: projectsData[5].description,
       image: 'https://i.imgur.com/mkksj0e.png',
       tags: ['React', 'Material UI', 'JavaScript', 'Bootstrap'],
       link: 'https://github.com/emremeralzn/client-app-react',
@@ -148,7 +154,7 @@ const Projects = () => {
             }
           }}
         >
-          Projelerim
+          {t.title}
         </Typography>
       </motion.div>
 
@@ -176,13 +182,9 @@ const Projects = () => {
               >
                 <CardMedia
                   component="img"
-                  sx={{
-                    height: isMobile ? 200 : 300,
-                    objectFit: 'contain',
-                    padding: '10px'
-                  }}
                   image={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${language === 'tr' ? 'Proje Görseli' : 'Project Image'}`}
+                  loading="lazy"
                   className="project-image"
                 />
                 <CardContent className="project-content" sx={{ flexGrow: 1 }}>
@@ -243,7 +245,7 @@ const Projects = () => {
                           }
                         }}
                       >
-                        Detayları Gör
+                        {t.viewDetails}
                       </Button>
                     )}
                     {project.website && (
@@ -261,7 +263,7 @@ const Projects = () => {
                           }
                         }}
                       >
-                        Siteye Git
+                        {t.visitWebsite}
                       </Button>
                     )}
                     {project.link && (

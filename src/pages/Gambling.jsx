@@ -3,30 +3,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './ProjectStyles.css';
 
 const Gambling = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const t = translations[language].projectDetails;
 
+  const projectData = translations[language].gambling;
+  
   const project = {
-    title: 'Kumar Oyunu Simülasyonu',
-    description: 'Bu proje, kullanıcıların sanal para birimi ile çeşitli kumar oyunlarını deneyimleyebilecekleri bir simülasyon platformudur. Kullanıcılar, slot makineleri, rulet, blackjack gibi popüler kumar oyunlarını oynayabilir ve sanal para kazanabilirler. Platform, gerçekçi oyun deneyimi sunarken, sorumlu kumar alışkanlıklarını teşvik eden özellikler de içermektedir.',
+    title: projectData.title,
+    description: projectData.description,
     images: [
       'https://i.imgur.com/ndB65k4.png'
     ],
-    features: [
-      'Çeşitli kumar oyunları (Slot, Rulet, Blackjack)',
-      'Sanal para sistemi',
-      'Gerçekçi oyun mekanikleri',
-      'Kullanıcı hesap yönetimi',
-      'Oyun istatistikleri ve geçmiş',
-      'Güvenli ödeme sistemi',
-      'Sorumlu kumar özellikleri',
-      'Canlı oyuncu desteği',
-      'Mobil uyumlu tasarım',
-      'Detaylı oyun kuralları ve yardım'
-    ],
+    features: projectData.features,
     technologies: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'Material-UI', 'Redux', 'Express.js', 'JWT']
   };
 
@@ -55,7 +50,7 @@ const Gambling = () => {
           }
         }}
       >
-         Geri Dön
+         {t.backButton}
       </Button>
 
       <Typography 
@@ -94,7 +89,8 @@ const Gambling = () => {
           >
             <img
               src={project.images[currentImageIndex]}
-              alt={`Proje görseli ${currentImageIndex + 1}`}
+              alt={`${project.title} - ${t.imageAlt} ${currentImageIndex + 1}`}
+              loading="lazy"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -177,7 +173,7 @@ const Gambling = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Öne Çıkan Özellikler
+              {t.featuresTitle}
             </Typography>
             <ul style={{ margin: 0, paddingLeft: '20px' }}>
               {project.features.map((feature, index) => (
@@ -194,7 +190,7 @@ const Gambling = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Kullanılan Teknolojiler
+              {t.technologiesTitle}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               {project.technologies.map((tech, index) => (

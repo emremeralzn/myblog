@@ -31,9 +31,10 @@
 }
 
 .project-image {
-  height: 200px;
-  object-fit: cover;
+  height: 300px;
+  object-fit: contain;
   transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .project-card:hover .project-image {

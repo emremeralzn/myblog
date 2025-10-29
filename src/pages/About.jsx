@@ -2,10 +2,14 @@ import { Container, Typography, Box, Button, useTheme, useMediaQuery } from '@mu
 import { useState } from 'react';
 import './About.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const About = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].about;
 
   const fadeInLeft = {
     hidden: { opacity: 0, x: -60 },
@@ -53,7 +57,7 @@ const About = () => {
         variants={fadeInUp}
       >
         <Typography variant={isMobile ? "h3" : "h2"} component="h1" className="about-title" sx={{ textAlign: isMobile ? 'center' : 'center' }}>
-          Hakkımda
+          {t.title}
         </Typography>
       </motion.div>
         
@@ -97,7 +101,7 @@ const About = () => {
         >
           <Box>
             <Typography variant="body1" className="about-description" sx={{ textAlign: isMobile ? 'center' : 'left' }}>
-              Bilgisayar Mühendisiyim ve Full Stack geliştirme yapıyorum. Backend tarafında ASP.NET Core ile RESTful API'ler geliştiriyor, SQL veritabanları üzerinde çalışıyor ve TypeScript, JavaScript gibi teknolojilerle verimli çözümler üretiyorum. Frontend tarafında ise React ile modern, kullanıcı dostu arayüzler geliştiriyor, TypeScript ile güçlü ve ölçeklenebilir yapılar kuruyorum. Git ve GitHub gibi araçlarla sürüm kontrolü yapıyor ve geliştirdiğim bileşenler için test yazma konusunda özen gösteriyorum. Yazılım geliştirme süreçlerinde analitik düşünme yeteneğim ve problem çözme becerimle projeleri başarıyla tamamlıyorum. Yeni teknolojileri öğrenmeye ve kendimi sürekli geliştirmeye büyük önem veriyorum.
+              {t.description}
             </Typography>
           </Box>
         </motion.div>
@@ -111,7 +115,7 @@ const About = () => {
       >
         <Box sx={{ mt: 6 }}>
           <Typography variant="h4" sx={{ mb: 3, textAlign: isMobile ? 'center' : 'left' }}>
-            Yetenekler
+            {t.skills}
           </Typography>
           <Box sx={{ 
             display: 'flex', 

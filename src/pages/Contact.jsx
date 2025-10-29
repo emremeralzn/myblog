@@ -10,6 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Contact.css';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 
 const Contact = () => {
   const [form, setForm] = useState({ email: '', subject: '', message: '' });
@@ -18,6 +20,8 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { language } = useLanguage();
+  const t = translations[language].contact;
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -133,7 +137,7 @@ const Contact = () => {
             }
           }}
         >
-          İletişim
+          {t.title}
         </Typography>
       </motion.div>
 
@@ -154,7 +158,7 @@ const Contact = () => {
                   textAlign: isMobile ? 'center' : 'left'
                 }}
               >
-                Herhangi bir sorunuz, öneriniz veya paylaşmak istediğiniz bir konu varsa, sizinle iletişimde olmaktan mutluluk duyarım. En kısa sürede size dönüş yapabilmek için elimden gelen tüm özeni göstereceğim.
+                {t.description}
               </Typography>
               <Box className="contact-socials" sx={{ justifyContent: isMobile ? 'center' : 'flex-start' }}>
                 <IconButton href="https://github.com/emremeralzn" target="_blank" className="contact-social-icon" aria-label="GitHub">
@@ -185,7 +189,7 @@ const Contact = () => {
                   </Alert>
                 )}
                 <TextField
-                  label="E-posta Adresiniz"
+                  label={t.email}
                   name="email"
                   value={form.email}
                   onChange={handleChange}
@@ -194,10 +198,11 @@ const Contact = () => {
                   variant="outlined"
                   size={isMobile ? "small" : "medium"}
                   margin="normal"
+                  placeholder={t.emailPlaceholder}
                   InputLabelProps={{ style: { color: '#b0bec5' } }}
                 />
                 <TextField
-                  label="Konu"
+                  label={t.subject}
                   name="subject"
                   value={form.subject}
                   onChange={handleChange}
@@ -206,10 +211,11 @@ const Contact = () => {
                   variant="outlined"
                   size={isMobile ? "small" : "medium"}
                   margin="normal"
+                  placeholder={t.subjectPlaceholder}
                   InputLabelProps={{ style: { color: '#b0bec5' } }}
                 />
                 <TextField
-                  label="Mesaj"
+                  label={t.message}
                   name="message"
                   value={form.message}
                   onChange={handleChange}
@@ -220,6 +226,7 @@ const Contact = () => {
                   variant="outlined"
                   size={isMobile ? "small" : "medium"}
                   margin="normal"
+                  placeholder={t.messagePlaceholder}
                   InputLabelProps={{ style: { color: '#b0bec5' } }}
                 />
                 <Button
@@ -236,7 +243,7 @@ const Contact = () => {
                     fontSize: isMobile ? '1rem' : '1.25rem'
                   }}
                 >
-                  {loading ? 'Gönderiliyor...' : 'Mesaj Gönder'}
+                  {loading ? (language === 'tr' ? 'Gönderiliyor...' : 'Sending...') : t.send}
                 </Button>
                 {sent && (
                   <Alert severity="success" sx={{ mt: 2 }}>

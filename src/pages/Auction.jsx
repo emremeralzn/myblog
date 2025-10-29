@@ -3,19 +3,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './ProjectStyles.css';
 
 const Auction = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const t = translations[language].projectDetails;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const projectData = translations[language].auction;
+  
   const project = {
-    title: 'Online Açık Artırma Platformu',
-    description: 'Bu proje, kullanıcıların çeşitli ürünleri açık artırma yoluyla alıp satabilecekleri bir online platformdur. Kullanıcılar ürünlerini listeyebilir, diğer kullanıcıların ürünlerine teklif verebilir ve gerçek zamanlı olarak artırma sürecini takip edebilirler. Platform, güvenli ödeme sistemi, kullanıcı değerlendirme sistemi ve detaylı ürün filtreleme özellikleri sunmaktadır.',
+    title: projectData.title,
+    description: projectData.description,
     images: [
       'https://i.imgur.com/AfY8yoD.png',
       'https://i.imgur.com/OHSiAKv.png',
@@ -26,18 +32,7 @@ const Auction = () => {
       'https://i.imgur.com/drnzOQV.png',
       'https://i.imgur.com/xashY5Q.png'
     ],
-    features: [
-      'Gerçek zamanlı açık artırma sistemi',
-      'Kullanıcı dostu arayüz',
-      'Güvenli ödeme altyapısı',
-      'Detaylı ürün filtreleme ve arama',
-      'Kullanıcı değerlendirme sistemi',
-      'Otomatik teklif bildirimleri',
-      'Ürün geçmişi ve fiyat analizi',
-      'Çoklu dil desteği',
-      'Mobil uyumlu tasarım',
-      '7/24 müşteri desteği'
-    ],
+    features: projectData.features,
     technologies: ['React', 'Node.js', 'MSSQL', 'ASP.NET', 'Material-UI', 'Redux', 'Identity', 'JWT', 'Stripe','Rest API','SignalR']
   };
 
@@ -66,7 +61,7 @@ const Auction = () => {
           }
         }}
       >
-         Geri Dön
+         {t.backButton}
       </Button>
 
       <Typography 
@@ -105,7 +100,8 @@ const Auction = () => {
           >
             <img
               src={project.images[currentImageIndex]}
-              alt={`Proje görseli ${currentImageIndex + 1}`}
+              alt={`${project.title} - ${t.imageAlt} ${currentImageIndex + 1}`}
+              loading="lazy"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -188,7 +184,7 @@ const Auction = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Öne Çıkan Özellikler
+              {t.featuresTitle}
             </Typography>
             <ul style={{ margin: 0, paddingLeft: '20px' }}>
               {project.features.map((feature, index) => (
@@ -205,7 +201,7 @@ const Auction = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Kullanılan Teknolojiler
+              {t.technologiesTitle}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               {project.technologies.map((tech, index) => (

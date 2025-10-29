@@ -1,43 +1,45 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense, useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { CircularProgress, Box } from '@mui/material';
+import './styles/global.css';
+import './App.css';
+
+// Eagerly loaded components (critical for initial render)
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
-import Contact from './pages/Contact';
-import Auction from './pages/Auction';
-import Cybersecurity from './pages/Cybersecurity';
-import ArtificialIntelligence from './pages/ArtificialIntelligence';
-import Gambling from './pages/Gambling';
-import './styles/global.css';
-import './App.css';
-import Work from './pages/Work';
-import RecruitmentPortal from './pages/RecruitmentPortal';
+
+// Lazy loaded components (loaded on demand)
+const Projects = lazy(() => import('./pages/Projects'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Work = lazy(() => import('./pages/Work'));
+const Auction = lazy(() => import('./pages/Auction'));
+const Cybersecurity = lazy(() => import('./pages/Cybersecurity'));
+const ArtificialIntelligence = lazy(() => import('./pages/ArtificialIntelligence'));
+const Gambling = lazy(() => import('./pages/Gambling'));
+const RecruitmentPortal = lazy(() => import('./pages/RecruitmentPortal'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      backgroundColor: '#121212',
+    }}
+  >
+    <CircularProgress />
+  </Box>
+);
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
-  const [formData, setFormData] = useState({
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Form gönderme işlemi burada yapılacak
-    console.log(formData);
-  };
 
   useEffect(() => {
     document.documentElement.style.setProperty('--text-primary', darkMode ? '#ffffff' : '#212121');
@@ -45,7 +47,8 @@ const App = () => {
     document.documentElement.style.setProperty('--background-default', darkMode ? '#121212' : '#ffffff');
   }, [darkMode]);
 
-  const theme = createTheme({
+  // Memoized theme to prevent unnecessary re-renders
+  const theme = useMemo(() => createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
       primary: {
@@ -128,7 +131,7 @@ const App = () => {
         },
       },
     },
-  });
+  }), [darkMode]);
 
   const MainContent = () => (
     <div className="App">
@@ -140,19 +143,26 @@ const App = () => {
         <section id="about">
           <About />
         </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="experience">
-          <Experience />
-        </section>
-         <section id="work">
-          <Work/>
-        </section>
-        <section id="contact">
-          <Contact/>
-        </section>
-        
+        <Suspense fallback={<LoadingFallback />}>
+          <section id="projects">
+            <Projects />
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <section id="experience">
+            <Experience />
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <section id="work">
+            <Work/>
+          </section>
+        </Suspense>
+        <Suspense fallback={<LoadingFallback />}>
+          <section id="contact">
+            <Contact/>
+          </section>
+        </Suspense>
       </main>
       <Footer darkMode={darkMode} />
     </div>
@@ -161,14 +171,16 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Routes>
-        <Route path="/auction" element={<Auction />} />
-        <Route path="/cybersecurity" element={<Cybersecurity />} />
-        <Route path="/artificial-intelligence" element={<ArtificialIntelligence />} />
-        <Route path="/gambling" element={<Gambling />} />
-        <Route path="/isealim-portal" element={<RecruitmentPortal />} />
-        <Route path="*" element={<MainContent />} />
-      </Routes>
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/auction" element={<Auction />} />
+          <Route path="/cybersecurity" element={<Cybersecurity />} />
+          <Route path="/artificial-intelligence" element={<ArtificialIntelligence />} />
+          <Route path="/gambling" element={<Gambling />} />
+          <Route path="/isealim-portal" element={<RecruitmentPortal />} />
+          <Route path="*" element={<MainContent />} />
+        </Routes>
+      </Suspense>
     </ThemeProvider>
   );
 };

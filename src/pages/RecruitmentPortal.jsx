@@ -3,22 +3,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations/translations';
 import './ProjectStyles.css';
 
 const RecruitmentPortal = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const t = translations[language].projectDetails;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const projectData = translations[language].recruitmentPortal;
+  
   const project = {
-    title: 'İşe Alım Portalı (Backend)',
-    description: `Turkuvaz Medya’nın işe alım süreçlerini dijitalleştirmek amacıyla geliştirilmiş kurumsal backend servisidir. 
-    Proje ASP.NET Core 8 ile sıfırdan geliştirilmiş olup, katmanlı mimari yapısı, Repository Pattern, 
-    AutoMapper, FluentValidation ve JWT tabanlı kimlik doğrulama özellikleriyle sürdürülebilir ve ölçeklenebilir bir yapı sunmaktadır. 
-    EBA sistemine otomatik veri aktarımı için REST tabanlı bir entegrasyon API’si de proje kapsamına dahil edilmiştir.`,
+    title: projectData.title,
+    description: projectData.description,
     images: [
       'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761291617/Screenshot_131_xrskvb.png',
       'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761293815/diagram_drr0vq.png',
@@ -26,20 +29,7 @@ const RecruitmentPortal = () => {
       'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761294733/Screenshot_133_dthidk.png',
       'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761293809/Unit-of-Work-with-Repository-Pattern-in-ASP.NET-Core-Web-API_ys8ofp.png'
     ],
-    features: [
-      'ASP.NET Core 8 tabanlı RESTful API geliştirme',
-      'Clean Architecture prensiplerine uygun katmanlı mimari',
-      'Repository Pattern ve Unit of Work yaklaşımı',
-      'Entity Framework Core (Database-First) ile veritabanı yönetimi',
-      'Dependency Injection ile bağımlılıkların yönetimi',
-      'AutoMapper ile Entity–DTO dönüşümleri',
-      'FluentValidation ile model bazlı doğrulama',
-      'Swagger ile API dokümantasyonu ve test desteği',
-      'EBA sistemine REST API aracılığıyla veri aktarımı',
-      'Postman ile API test senaryoları ve doğrulama',
-      'JWT tabanlı kimlik doğrulama mekanizması',
-      'Git ve Trello ile proje yönetimi ve versiyon kontrolü'
-    ],
+    features: projectData.features,
     technologies: [
       'C#',
       'ASP.NET Core',
@@ -88,7 +78,7 @@ const RecruitmentPortal = () => {
           }
         }}
       >
-        Geri Dön
+        {t.backButton}
       </Button>
 
       <Typography
@@ -128,7 +118,8 @@ const RecruitmentPortal = () => {
           >
             <img
               src={project.images[currentImageIndex]}
-              alt={`Proje görseli ${currentImageIndex + 1}`}
+              alt={`${project.title} - ${t.imageAlt} ${currentImageIndex + 1}`}
+              loading="lazy"
               style={{
                 width: '100%',
                 height: '600px',
@@ -205,7 +196,7 @@ const RecruitmentPortal = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Öne Çıkan Özellikler
+              {t.featuresTitle}
             </Typography>
             <ul style={{ margin: 0, paddingLeft: 20 }}>
               {project.features.map((feature, index) => (
@@ -222,7 +213,7 @@ const RecruitmentPortal = () => {
         <Grid item xs={12} md={6}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, color: '#2196f3' }}>
-              Kullanılan Teknolojiler
+              {t.technologiesTitle}
             </Typography>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
               {project.technologies.map((tech, index) => (
