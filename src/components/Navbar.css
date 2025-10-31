@@ -34,12 +34,34 @@
   font-size: 1.2rem !important;
   background: linear-gradient(45deg, #2196f3, #64b5f6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-codes {
+  display: inline-block;
+}
+
+.logo-name {
+  display: inline-block;
 }
 
 .logo:hover .logo-text {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .logo-name {
+    display: none !important;
+  }
+  
+  .logo-codes {
+    display: inline-block !important;
+  }
 }
 
 .nav-links {

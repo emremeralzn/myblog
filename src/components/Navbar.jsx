@@ -72,7 +72,9 @@ const Navbar = memo(() => {
       <Toolbar className="navbar-container" sx={{ minHeight: '40px !important' }}>
         <div className="logo" onClick={() => scrollToSection('home')}>
           <Typography variant="h6" className="logo-text" sx={{ fontSize: '1rem' }}>
-            {'</>'}
+            <span className="logo-codes">&lt;</span>
+            <span className="logo-name">Emre Meral</span>
+            <span className="logo-codes">/&gt;</span>
           </Typography>
         </div>
 

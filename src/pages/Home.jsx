@@ -70,6 +70,7 @@ const Home = () => {
               <Box className="text-content">
                 <Typography
                   variant={isMobile ? 'h2' : 'h1'}
+                  component="h1"
                   className="main-title"
                   sx={{
                     lineHeight: 1.2,
@@ -84,6 +85,8 @@ const Home = () => {
                   }}
                 >
                   {t.greeting}{' '}
+                  <span className="highlight">{t.name}</span>
+                  <br />
                   <span className="highlight">{t.title}</span>
                 </Typography>
                 {isMobile && <Box sx={{ height: 32 }} />}
@@ -141,7 +144,7 @@ const Home = () => {
               >
                 <img
                   src="https://i.imgur.com/F2bC5pg.png"
-                  alt="Developer"
+                  alt="Emre Meral - Full Stack Developer"
                   className="hero-image"
                   style={{
                     maxWidth: '100%',

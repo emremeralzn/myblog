@@ -56,7 +56,7 @@ const About = () => {
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <Typography variant={isMobile ? "h3" : "h2"} component="h1" className="about-title" sx={{ textAlign: isMobile ? 'center' : 'center' }}>
+        <Typography variant={isMobile ? "h3" : "h2"} component="h2" className="about-title" sx={{ textAlign: isMobile ? 'center' : 'center' }}>
           {t.title}
         </Typography>
       </motion.div>
@@ -81,7 +81,7 @@ const About = () => {
           }}>
             <img
               src="https://i.imgur.com/WVKtRn0.png"
-              alt="Profil Görseli"
+              alt="Emre Meral - Full Stack Developer ve Bilgisayar Mühendisi"
               style={{
                 width: isMobile ? '100%' : '90%',
                 height: 'auto',

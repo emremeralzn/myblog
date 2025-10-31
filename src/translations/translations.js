@@ -11,9 +11,10 @@ export const translations = {
     },
     // Home Page
     home: {
-      greeting: 'Merhaba, Ben Emre',
+      greeting: 'Merhaba, Ben',
+      name: 'Emre Meral',
       title: "Full Stack Developer'ım",
-      description: 'React ve .NET teknolojilerini kullanarak modern, kullanıcı dostu ve ölçeklenebilir web uygulamaları geliştiriyorum. Hem frontend hem de backend geliştirme süreçlerinde deneyimliyim.',
+      description: 'Ben Emre Meral, React ve .NET teknolojilerini kullanarak modern, kullanıcı dostu ve ölçeklenebilir web uygulamaları geliştiriyorum. Hem frontend hem de backend geliştirme süreçlerinde deneyimliyim.',
       contactButton: 'İletişime Geç',
       cvButton: "CV'mi İndir",
       cvLink: 'https://drive.google.com/file/d/1rapInHVp1tqRaQrhZjKH8OTLGh2nswCI/view?usp=sharing'
@@ -21,7 +22,7 @@ export const translations = {
     // About Page
     about: {
       title: 'Hakkımda',
-      description: "Bilgisayar Mühendisiyim ve Full Stack geliştirme yapıyorum. Backend tarafında ASP.NET Core ile RESTful API'ler geliştiriyor, SQL veritabanları üzerinde çalışıyor ve TypeScript, JavaScript gibi teknolojilerle verimli çözümler üretiyorum. Frontend tarafında ise React ile modern, kullanıcı dostu arayüzler geliştiriyor, TypeScript ile güçlü ve ölçeklenebilir yapılar kuruyorum. Git ve GitHub gibi araçlarla sürüm kontrolü yapıyor ve geliştirdiğim bileşenler için test yazma konusunda özen gösteriyorum. Yazılım geliştirme süreçlerinde analitik düşünme yeteneğim ve problem çözme becerimle projeleri başarıyla tamamlıyorum. Yeni teknolojileri öğrenmeye ve kendimi sürekli geliştirmeye büyük önem veriyorum.",
+      description: "Ben Emre Meral, Bilgisayar Mühendisi ve Full Stack Developer'ım. Backend tarafında ASP.NET Core ile RESTful API'ler geliştiriyor, SQL veritabanları üzerinde çalışıyor ve TypeScript, JavaScript gibi teknolojilerle verimli çözümler üretiyorum. Frontend tarafında ise React ile modern, kullanıcı dostu arayüzler geliştiriyor, TypeScript ile güçlü ve ölçeklenebilir yapılar kuruyorum. Emre Meral olarak, Git ve GitHub gibi araçlarla sürüm kontrolü yapıyor ve geliştirdiğim bileşenler için test yazma konusunda özen gösteriyorum. Yazılım geliştirme süreçlerinde analitik düşünme yeteneğim ve problem çözme becerimle projeleri başarıyla tamamlıyorum. Yeni teknolojileri öğrenmeye ve kendimi sürekli geliştirmeye büyük önem veriyorum.",
       skills: 'Yetenekler'
     },
     // Projects Page
@@ -216,17 +217,18 @@ export const translations = {
     },
     // Home Page
     home: {
-      greeting: 'Hello, I am Emre',
+      greeting: 'Hello, I am',
+      name: 'Emre Meral',
       title: 'Full Stack Developer',
-      description: 'I develop modern, user-friendly and scalable web applications using React and .NET technologies. I am experienced in both frontend and backend development processes.',
+      description: 'I am Emre Meral, developing modern, user-friendly and scalable web applications using React and .NET technologies. I am experienced in both frontend and backend development processes.',
       contactButton: 'Get In Touch',
       cvButton: 'Download CV',
-      cvLink: 'https://drive.google.com/file/d/1MLla8iM3biBjNU5OZf1TRTqPTkwDOSqv/view?usp=sharing'
+      cvLink: 'https://drive.google.com/file/d/1WWAfZNRjEiGcoT-NGdiYr88saE3cYbSq/view?usp=sharing'
     },
     // About Page
     about: {
-      title: 'About Me',
-      description: "I am a Computer Engineer and Full Stack Developer. On the backend side, I develop RESTful APIs with ASP.NET Core, work with SQL databases, and produce efficient solutions with technologies such as TypeScript and JavaScript. On the frontend side, I develop modern, user-friendly interfaces with React and build strong and scalable structures with TypeScript. I perform version control with tools such as Git and GitHub and take care to write tests for the components I develop. I successfully complete projects with my analytical thinking ability and problem-solving skills in software development processes. I attach great importance to learning new technologies and constantly improving myself.",
+      title: 'About Me - Emre Meral',
+      description: "I am Emre Meral, a Computer Engineer and Full Stack Developer. On the backend side, I develop RESTful APIs with ASP.NET Core, work with SQL databases, and produce efficient solutions with technologies such as TypeScript and JavaScript. On the frontend side, I develop modern, user-friendly interfaces with React and build strong and scalable structures with TypeScript. As Emre Meral, I perform version control with tools such as Git and GitHub and take care to write tests for the components I develop. I successfully complete projects with my analytical thinking ability and problem-solving skills in software development processes. I attach great importance to learning new technologies and constantly improving myself.",
       skills: 'Skills'
     },
     // Projects Page
