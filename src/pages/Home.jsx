@@ -143,7 +143,7 @@ const Home = () => {
                 }}
               >
                 <img
-                  src="https://i.imgur.com/F2bC5pg.png"
+                  src="https://res.cloudinary.com/dtgayqxdr/image/upload/v1761870858/EmreMeral_hismaa.png"
                   alt="Emre Meral - Full Stack Developer"
                   className="hero-image"
                   style={{

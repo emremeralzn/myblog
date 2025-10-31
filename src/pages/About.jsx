@@ -80,7 +80,7 @@ const About = () => {
             justifyContent: isMobile ? 'center' : 'flex-start'
           }}>
             <img
-              src="https://i.imgur.com/WVKtRn0.png"
+              src="https://res.cloudinary.com/dtgayqxdr/image/upload/v1761870897/EmreMeral-yaz%C4%B1_dvsfaa.png"
               alt="Emre Meral - Full Stack Developer ve Bilgisayar Mühendisi"
               style={{
                 width: isMobile ? '100%' : '90%',

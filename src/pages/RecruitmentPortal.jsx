@@ -23,11 +23,11 @@ const RecruitmentPortal = () => {
     title: projectData.title,
     description: projectData.description,
     images: [
-      'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761291617/Screenshot_131_xrskvb.png',
-      'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761293815/diagram_drr0vq.png',
-      'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761294917/Screenshot_134_cksekx.png',
-      'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761294733/Screenshot_133_dthidk.png',
-      'https://res.cloudinary.com/dx9s65lk3/image/upload/v1761293809/Unit-of-Work-with-Repository-Pattern-in-ASP.NET-Core-Web-API_ys8ofp.png'
+      'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761871084/EmreMeral-Turkuvaz_svvuhj.png',
+      'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761871270/EmreMeral-Loyalty_dpgf1x.png',
+      'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761871097/EmreMeral-code_vpmitu.png',
+      'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761871112/EmreMeral-api_e1lvyo.png',
+      'https://res.cloudinary.com/dtgayqxdr/image/upload/v1761871316/EmreMeral-repositorypattern_w9ksfa.png'
     ],
     features: projectData.features,
     technologies: [
