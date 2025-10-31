@@ -2,6 +2,12 @@
 User-agent: *
 Allow: /
 
+# Crawl-delay
+Crawl-delay: 1
+
 # Sitemap
 Sitemap: https://emremeralzn.github.io/myblog/sitemap.xml
+
+# Host
+Host: https://emremeralzn.github.io/myblog
 
