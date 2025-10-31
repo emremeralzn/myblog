@@ -60,7 +60,7 @@ const Contact = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://sonhali-env.eba-qqnxckpz.us-east-1.elasticbeanstalk.com/api/email', {
+      const response = await axios.post('https://email-i30y.onrender.com/api/email', {
         to: form.email,
         subject: form.subject,
         body: form.message
